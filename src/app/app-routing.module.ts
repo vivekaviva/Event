@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CalenderComponent } from './Admin/calender/calender.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path:'', component:CalenderComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
