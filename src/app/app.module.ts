@@ -8,6 +8,7 @@ import { HeaderComponent } from './Shared/header/header.component';
 import { FooterComponent } from './Shared/footer/footer.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     CalenderComponent,
     HeaderComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
