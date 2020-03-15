@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
+  
   login = () => {
     this.router.navigate(['calender']);
   }

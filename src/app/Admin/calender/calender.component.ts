@@ -1,7 +1,8 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { FullCalendarComponent } from '@fullcalendar/angular';
 import { EventInput } from '@fullcalendar/core';
- import dayGridPlugin from '@fullcalendar/daygrid';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import { AllapiService } from '../../services/allapi.service';
  
 // import timeGrigPlugin from '@fullcalendar/timegrid';
 // import interactionPlugin from '@fullcalendar/interaction'; // for dateClick
@@ -15,8 +16,14 @@ declare var $: any;
 })
 
 export class CalenderComponent implements OnInit {
+
   calendarPlugins:any;
-  constructor() { }
+  date:any;
+  comment : any;
+  time : any;
+  event : any;
+
+  constructor( private allApi: AllapiService) { }
 
   ngOnInit(){
     this.calendarPlugins = [dayGridPlugin]; // important!
@@ -55,6 +62,29 @@ export class CalenderComponent implements OnInit {
         allDay: arg.allDay
       })
     }
+  }
+  addEventNew = () => {
+    console.log("clicked add new event");
+  }
+
+  add = () => {
+    console.log("clicked add button");
+    
+    let formData: any = {};
+    formData.date = this.date;
+    formData.time = this.time;
+    formData.event = this.event;
+    formData.comment = this.comment;
+   
+    console.log("fData", formData);
+
+    this.allApi.addEvent(formData).subscribe(
+      (result) => {
+        console.log("add the event",result)
+      }, (err) => {
+        console.log("event not added",err);
+      }
+    )
   }
 
 }

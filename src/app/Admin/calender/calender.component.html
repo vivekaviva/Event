@@ -404,7 +404,7 @@
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="body">
-                                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addevent">Add New Event</button>
+                                <button type="button" (click)="addEventNew()" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addevent">Add New Event</button>
                             </div>
                         </div>
                         <div class="card">
@@ -480,22 +480,27 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <div class="form-line">
-                            <input type="number" class="form-control" placeholder="Event Date">
+                            <input type="text" [(ngModel)]="date" class="form-control" placeholder="Event Date">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="form-line">
-                            <input type="text" class="form-control" placeholder="Event Title">
+                            <input type="text" [(ngModel)]="time" class="form-control" placeholder="Event Time">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="form-line">
-                            <textarea class="form-control no-resize" rows="4" placeholder="Event Description..."></textarea>
+                            <input type="text" [(ngModel)]="event" class="form-control" placeholder="Event Title">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <textarea class="form-control no-resize" [(ngModel)]="comment" rows="4" placeholder="Event Description..."></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Add</button>
+                    <button type="button" (click)="add()" class="btn btn-primary">Add</button>
                     <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">CLOSE</button>
                 </div>
             </div>
