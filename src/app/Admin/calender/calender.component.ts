@@ -80,7 +80,8 @@ export class CalenderComponent implements OnInit {
 
     this.allApi.addEvent(formData).subscribe(
       (result) => {
-        console.log("add the event",result)
+        console.log("add the event", result)
+         $('#addevent').modal('hide')
       }, (err) => {
         console.log("event not added",err);
       }
